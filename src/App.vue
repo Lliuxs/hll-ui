@@ -8,10 +8,16 @@
     <hll-button type='info'>info</hll-button>
 
     <hll-button type='primary' icon='info' iconPosition='right'>info</hll-button>
+    
     <hll-button type='primary' icon='info'>info</hll-button>
-     <hll-button type='primary' icon='info' :loading='true'>info</hll-button>
+    <hll-button type='primary' icon='info' :loading='true'>info</hll-button>
    
     <hll-icon icon='success'></hll-icon>
+
+    <hll-button-group>
+      <hll-button type='primary'>上一页</hll-button>
+      <hll-button type='primary'>下一页</hll-button>
+    </hll-button-group>
   </div>
 </template>
 
