@@ -6,7 +6,9 @@
     <hll-button type='warning'> warning</hll-button>
     <hll-button type='danger'>danger</hll-button>
     <hll-button type='info'>info</hll-button>
-    <hll-icon></hll-icon>
+
+    
+    <hll-icon icon='success'></hll-icon>
   </div>
 </template>
 
