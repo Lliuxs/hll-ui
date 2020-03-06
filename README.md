@@ -1,3 +1,5 @@
+# hll-ui
+[![npm version](https://badge.fury.io/js/hll-ui.svg)](https://badge.fury.io/js/hll-ui)
 ## 从零搭建`Vue`组件库
 
 - import hllUi from 'hll-ui'
