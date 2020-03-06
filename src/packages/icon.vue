@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <svg class="hll-icon" aria-hidden="true">
-      <use :xlink:href="`#icon-${icon}`"></use>
-    </svg>
-  </div>
+  <svg class="hll-icon" aria-hidden="true">
+    <use :xlink:href="`#icon-${icon}`"></use>
+  </svg>
 </template>
 
 <script>
