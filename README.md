@@ -1,8 +1,8 @@
 ## 从零搭建`Vue`组件库
 
-- import hlluUi from 'hllu-ui'
-- import 'hllu-ui/dist/hllu-ui.css'
-- Vue.use(hlluUi)
+- import hllUi from 'hll-ui'
+- import 'hll-ui/dist/hll-ui.css'
+- Vue.use(hllUi)
 
 ## 一.组件库的划分
 
@@ -100,8 +100,8 @@ export default {
 ```
 
 ```js
-import hlluUi from  './packages';
-Vue.use(hlluUi)
+import hllUi from  './packages';
+Vue.use(hllUi)
 ```
 
 > 我们可以通过插件的方式去引入我们的组件库
@@ -438,10 +438,10 @@ describe('button.vue', () => {
     it('1.测试slot是否能正常显示', () => {
         const wrapper = shallowMount(Button, {
             slots: {
-                default: 'hllu-ui'
+                default: 'hll-ui'
             }
         })
-        expect(wrapper.text()).to.equal('hllu-ui')
+        expect(wrapper.text()).to.equal('hll-ui')
     })
     it('2.测试传入icon属性', () => {
         const wrapper = shallowMount(Button, {
@@ -505,13 +505,13 @@ describe('button.vue', () => {
 #### (1)配置打包命令
 
 ```bash
-"lib": "vue-cli-service build --target lib --name hllu-ui  ./src/packages/index.js"
+"lib": "vue-cli-service build --target lib --name hll-ui  ./src/packages/index.js"
 ```
 
 #### (2)配置运行入口
 
 ```bash
-"main": "./dist/hllu-ui.umd.min.js"
+"main": "./dist/hll-ui.umd.min.js"
 ```
 
 #### (3)link到全局下
@@ -560,7 +560,7 @@ features:
 
 ```js
 module.exports = {
-    title: 'hllu-ui', // 设置网站标题
+    title: 'hll-ui', // 设置网站标题
     description: 'ui 库', //描述
     dest: './build', // 设置输出目录
     port: 1234, //端口
@@ -597,7 +597,7 @@ module.exports = {
 - link组件库
 
   ```bash
-  npm link hllu-ui
+  npm link hll-ui
   ```
 
 ```js
@@ -608,8 +608,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/googlecode.css' //样式文件
 
-import hlluUi from 'hllu-ui' // 要编写对应的文档的包
-import 'hllu-ui/dist/hllu-ui.css'
+import hllUi from 'hll-ui' // 要编写对应的文档的包
+import 'hll-ui/dist/hll-ui.css'
 Vue.directive('highlight',function (el) {
   let blocks = el.querySelectorAll('pre code');
   blocks.forEach((block)=>{
@@ -623,7 +623,7 @@ export default ({
   siteData
 }) => {
   Vue.use(Element);
-  Vue.use(hlluUi)
+  Vue.use(hllUi)
 }
 ```
 
