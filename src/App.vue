@@ -56,8 +56,9 @@
       </hll-col>
     </hll-row> -->
 
-    <hll-input v-model="name" type='text' placeholder='请输入内容' name='username'></hll-input>
-    <hll-input v-model="password" type='password' placeholder='请输入内容' name='username'></hll-input>
+    <hll-input v-model="name" type='text' placeholder='请输入用户名' name='username' suffix-icon="info"></hll-input>
+    <hll-input v-model="password" type='password' placeholder='请输入密码' name='password' :clearable='true'></hll-input>
+    <hll-input  v-model="value"  type="password" placeholder="请输入内容"  name="psd" :showPassword='true'></hll-input>
   </div>
 </template>
 
@@ -73,7 +74,8 @@ export default {
   data() {
     return {
       name: '',
-      password: ''
+      password: '',
+      value: ''
     }
   }
 }

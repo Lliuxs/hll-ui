@@ -10,7 +10,7 @@ import Header from './container/header';
 import Main from './container/main';
 import Aside from './container/aside';
 
-import Input from './form/input';
+import Input from './input/input';
 
 const install = Vue => {
   Vue.component(Button.name, Button);
