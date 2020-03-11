@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <hll-button @click="fn">button</hll-button>
+    <!-- <hll-button @click="fn">button</hll-button>
     <hll-button type='primary'>primary</hll-button>
     <hll-button type='success'>success</hll-button>
     <hll-button type='warning'> warning</hll-button>
@@ -17,7 +17,47 @@
     <hll-button-group>
       <hll-button type='primary'>上一页</hll-button>
       <hll-button type='primary'>下一页</hll-button>
-    </hll-button-group>
+    </hll-button-group> -->
+
+    
+    <!-- <hll-row>
+      <hll-col :span='12'>
+        <div>1</div>
+      </hll-col>
+      <hll-col :span='12'>
+        <div>2</div>
+      </hll-col>
+      <hll-col :span='12'>
+        <div>3</div>
+      </hll-col>
+    </hll-row>
+
+    <hll-row>
+      <hll-col :span='6'>
+        <div>offset1</div>
+      </hll-col>
+      <hll-col :span='6' :offset='12'>
+        <div>offset2</div>
+      </hll-col>
+    </hll-row>
+
+    <hll-row :gutter='20'>
+      <hll-col :span='6'>
+        <div>6</div>
+      </hll-col>
+      <hll-col :span='6'>
+        <div>6</div>
+      </hll-col>
+      <hll-col :span='6'>
+        <div>6</div>
+      </hll-col>
+      <hll-col :span='6'>
+        <div>6</div>
+      </hll-col>
+    </hll-row> -->
+
+    <hll-input v-model="name" type='text' placeholder='请输入内容' name='username'></hll-input>
+    <hll-input v-model="password" type='password' placeholder='请输入内容' name='username'></hll-input>
   </div>
 </template>
 
@@ -28,6 +68,12 @@ export default {
   methods: {
     fn(e) {
       console.log(e)
+    }
+  },
+  data() {
+    return {
+      name: '',
+      password: ''
     }
   }
 }
