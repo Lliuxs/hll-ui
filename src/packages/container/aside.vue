@@ -9,7 +9,8 @@ export default {
   name: 'hll-aside',
   props: {
     width: {
-      type: String
+      type: String,
+      default: '300px'
     }
   }
 };
