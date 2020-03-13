@@ -17,9 +17,8 @@
     <hll-button-group>
       <hll-button type='primary'>上一页</hll-button>
       <hll-button type='primary'>下一页</hll-button>
-    </hll-button-group> -->
+    </hll-button-group>-->
 
-    
     <!-- <hll-row>
       <hll-col :span='12'>
         <div>1</div>
@@ -54,31 +53,80 @@
       <hll-col :span='6'>
         <div>6</div>
       </hll-col>
-    </hll-row> -->
+    </hll-row>-->
 
-    <hll-input v-model="name" type='text' placeholder='请输入用户名' name='username' suffix-icon="info"></hll-input>
+    <!-- <hll-input v-model="name" type='text' placeholder='请输入用户名' name='username' suffix-icon="info"></hll-input>
     <hll-input v-model="password" type='password' placeholder='请输入密码' name='password' :clearable='true'></hll-input>
-    <hll-input  v-model="value"  type="password" placeholder="请输入内容"  name="psd" :showPassword='true'></hll-input>
+    <hll-input  v-model="value"  type="password" placeholder="请输入内容"  name="psd" :showPassword='true'></hll-input>-->
+
+    <!-- 上传的功能 input form  ajax+formdata -->
+    <hll-upload
+      name="avatar"
+      action="http://localhost:3000/upload"
+      accept="image/jpeg"
+      :limit="8"
+      :file-list="fileList"
+      :multiple="true"
+      :on-exceed="handleExceed"
+      :on-change="handleChange"
+      :on-success="handleSuccess"
+      :on-error="handleError"
+      :on-progress="handleProgress"
+      :before-upload="beforeUpload"
+      :drag='true'
+    >
+      <hll-button type="primary">点击上传</hll-button>
+      <div slot="tips">只能上传jpg/png文件，且不超过500kb</div>
+    </hll-upload>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  methods: {
-    fn(e) {
-      console.log(e)
-    }
-  },
+  name: "App",
   data() {
     return {
-      name: '',
-      password: '',
-      value: ''
+      name: "",
+      password: "",
+      value: "",
+      fileList: [
+        { url: "xxx1", name: "hll-upload1" },
+        { url: "xxx2", name: "hll-upload2" }
+      ]
+    };
+  },
+  methods: {
+    fn(e) {
+      console.log(e);
+    },
+    handleExceed(files, fileList) {
+      console.log("文件超出个数限制时的钩子");
+    },
+    handleChange(file, fileList) {
+      // console.log("change", file, fileList);
+    },
+    handleSuccess(response, file, fileList) {
+      console.log("文件上传成功");
+    },
+    handleError(err, file, fileList) {
+      console.log("文件上传失败");
+    },
+    handleProgress(event, file, fileList) {
+      console.log("文件上传时触发 进度条");
+    },
+    beforeUpload(file) {
+      const isJPG = file.type === "image/jpeg";
+      const isLt2M = file.size / 1024 / 1024 < 2;
+      if (!isJPG) {
+        console.error("上传头像图片只能是 JPG 格式!");
+      }
+      if (!isLt2M) {
+        console.error("上传图片大小不能超过 2MB!");
+      }
+      return isJPG && isLt2M;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
