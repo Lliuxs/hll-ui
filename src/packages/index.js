@@ -13,7 +13,8 @@ import Aside from './container/aside';
 import Input from './input/input';
 import Upload from './upload/upload'
 import Progress from './progress'
-
+import DatePicker from './date-pick/date-picker.vue'
+import DateRangePicker from './date-pick/date-range-picker.vue'
 const install = Vue => {
   Vue.component(Button.name, Button);
   Vue.component(Icon.name, Icon);
@@ -28,6 +29,8 @@ const install = Vue => {
   Vue.component(Input.name, Input);
   Vue.component(Upload.name, Upload);
   Vue.component(Progress.name, Progress);
+  Vue.component(DatePicker.name, DatePicker);
+  Vue.component(DateRangePicker.name, DateRangePicker);
 };
 
 // 通过script标签直接引入

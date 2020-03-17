@@ -60,7 +60,7 @@
     <hll-input  v-model="value"  type="password" placeholder="请输入内容"  name="psd" :showPassword='true'></hll-input>-->
 
     <!-- 上传的功能 input form  ajax+formdata -->
-    <hll-upload
+    <!-- <hll-upload
       name="avatar"
       action="http://localhost:3000/upload"
       accept="image/jpeg"
@@ -77,7 +77,12 @@
     >
       <hll-button type="primary">点击上传</hll-button>
       <div slot="tips">只能上传jpg/png文件，且不超过500kb</div>
-    </hll-upload>
+    </hll-upload> -->
+
+    <!-- v-model语法糖 value @input -->
+    <hll-date-picker v-model='value1'></hll-date-picker>
+
+    <!-- <hll-date-range-picker v-model="value2"/> -->
   </div>
 </template>
 
@@ -92,7 +97,9 @@ export default {
       fileList: [
         { url: "xxx1", name: "hll-upload1" },
         { url: "xxx2", name: "hll-upload2" }
-      ]
+      ],
+      value1: '',
+      value2: []
     };
   },
   methods: {
