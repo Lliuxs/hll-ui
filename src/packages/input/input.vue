@@ -11,7 +11,7 @@
       @input="$emit('input', $event.target.value)"
       @focus="$emit('focus', $event.target.value)"
       @blur="$emit('blur', $event.target.value)"
-      @change="$emit('change', $event.target.value)"
+      @change="$emit('change', $event)"
     />
     <!-- @mousedown.native.prevent  不会失去焦点 -->
     <hll-icon
