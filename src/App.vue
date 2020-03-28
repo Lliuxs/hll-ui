@@ -18,7 +18,6 @@
       <hll-button type='primary'>上一页</hll-button>
       <hll-button type='primary'>下一页</hll-button>
     </hll-button-group>-->
-
     <!-- <hll-row>
       <hll-col :span='12'>
         <div>1</div>
@@ -54,11 +53,9 @@
         <div>6</div>
       </hll-col>
     </hll-row>-->
-
     <!-- <hll-input v-model="name" type='text' placeholder='请输入用户名' name='username' suffix-icon="info"></hll-input>
     <hll-input v-model="password" type='password' placeholder='请输入密码' name='password' :clearable='true'></hll-input>
     <hll-input  v-model="value"  type="password" placeholder="请输入内容"  name="psd" :showPassword='true'></hll-input>-->
-
     <!-- 上传的功能 input form  ajax+formdata -->
     <!-- <hll-upload
       name="avatar"
@@ -77,12 +74,39 @@
     >
       <hll-button type="primary">点击上传</hll-button>
       <div slot="tips">只能上传jpg/png文件，且不超过500kb</div>
-    </hll-upload> -->
-
+    </hll-upload>-->
     <!-- v-model语法糖 value @input -->
-    <hll-date-picker v-model='value1'></hll-date-picker>
-
+    <!-- <hll-date-picker v-model='value1'></hll-date-picker> -->
     <!-- <hll-date-range-picker v-model="value2"/> -->
+    <!-- <ul 
+      class="box" 
+      v-infinite-scroll='load'
+      infinite-scroll-disabled='hasMore'
+      infinite-scroll-delay='delay'
+      infinite-scroll-distance='distance'
+      infinite-scroll-immediate	='immediate'
+      >
+      <li v-for="c in count" :key="c">{{c}}</li>
+    </ul>-->
+    <!-- <hll-popover
+      v-model="visible"
+      placement="bottom"
+      title="标题"
+      width="200"
+      trigger="click"
+      content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+    >
+      <hll-button slot="reference">click</hll-button>
+    </hll-popover> -->
+
+    <hll-popover v-model="visible" placement="bottom" title="标题" width="200" trigger="hover">
+      <p>这是一段内容这是一段内容确定删除吗？</p>
+      <div style="text-align: right; margin: 0">
+        <hll-button @click="visible = false">取消</hll-button>
+        <hll-button type="primary" @click="visible = false">确定</hll-button>
+      </div>
+      <hll-button slot="reference">hover 激活</hll-button>
+    </hll-popover>
   </div>
 </template>
 
@@ -98,8 +122,14 @@ export default {
         { url: "xxx1", name: "hll-upload1" },
         { url: "xxx2", name: "hll-upload2" }
       ],
-      value1: '',
-      value2: []
+      value1: "",
+      value2: [],
+      count: 0,
+      hasMore: false,
+      delay: 300, // 延时时间
+      distance: 0,
+      immediate: true,
+      visible: false
     };
   },
   methods: {
@@ -131,10 +161,22 @@ export default {
         console.error("上传图片大小不能超过 2MB!");
       }
       return isJPG && isLt2M;
+    },
+    load() {
+      this.count += 2;
+      if (this.count >= 100) {
+        this.hasMore = true;
+      }
     }
   }
 };
 </script>
 
 <style lang="scss">
+.box {
+  width: 300px;
+  height: 200px;
+  border: 1px solid green;
+  overflow-y: scroll;
+}
 </style>

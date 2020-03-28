@@ -15,6 +15,11 @@ import Upload from './upload/upload'
 import Progress from './progress'
 import DatePicker from './date-pick/date-picker.vue'
 import DateRangePicker from './date-pick/date-range-picker.vue'
+import Popover from './popover/popover.vue'
+
+
+// 指令
+import infiniteScroll from './infiniteScroll/index'
 const install = Vue => {
   Vue.component(Button.name, Button);
   Vue.component(Icon.name, Icon);
@@ -31,6 +36,9 @@ const install = Vue => {
   Vue.component(Progress.name, Progress);
   Vue.component(DatePicker.name, DatePicker);
   Vue.component(DateRangePicker.name, DateRangePicker);
+  Vue.component(Popover.name, Popover);
+
+  Vue.directive(infiniteScroll.name, infiniteScroll)
 };
 
 // 通过script标签直接引入
